@@ -34,25 +34,29 @@
     <div class="digit2"></div>
   </body>
   <script type="text/javascript">
-    let midFill = [0, 1, 1, 1, 0];
-    let allFill = [1, 1, 1, 1, 1];
-    let midEmpty = [1, 1, 0, 1, 1];
-    let midRight = [0, 0, 1, 1, 0];
-    let midLeft = [0, 1, 1, 0, 0];
-    let leftFill = [1, 1, 0, 0, 0];
-    let rightFill = [0, 0, 0, 1, 1];
-    let majorRightFill = [0, 1, 1, 1, 1];
-    let majorLeftFill = [1, 1, 1, 1, 0];
+    let midFill = [0, 0, 1, 1, 0, 0];
+    let allFill = [1, 1, 1, 1, 1, 1];
+    let majorMidFill = [0, 1, 1, 1, 1, 0];
+    let midEmpty = [1, 1, 0, 0, 1, 1];
+    let midRight = [0, 0, 1, 1, 1, 0];
+    let midLeft = [0, 1, 1, 1, 0, 0];
+    let leftFill = [1, 1, 0, 0, 0, 0];
+    let rightFill = [0, 0, 0, 0, 1, 1];
+    let majorRightFill = [0, 0, 1, 1, 1, 1];
+    let minorRightFill = [0, 0, 0, 1, 1, 0];
+    let majorLeftFill = [1, 1, 1, 1, 0, 0];
+    let minorLeftFill = [0, 1, 1, 0, 0, 0];
 
     let zero = [
-      ...midFill,
+      ...majorMidFill,
       ...allFill,
       ...midEmpty,
       ...midEmpty,
       ...midEmpty,
       ...midEmpty,
+      ...midEmpty,
       ...allFill,
-      ...midFill
+      ...majorMidFill
     ];
     let one = [
       ...midFill,
@@ -61,28 +65,42 @@
       ...midFill,
       ...midFill,
       ...midFill,
+      ...midFill,
       ...allFill,
       ...allFill
     ];
     let two = [
-      ...midFill,
+      ...majorMidFill,
       ...allFill,
       ...midEmpty,
-      ...midRight,
-      ...midLeft,
+      ...rightFill,
+      ...majorRightFill,
+      ...majorLeftFill,
       ...leftFill,
       ...allFill,
       ...allFill
     ];
     let three = [
-      ...midFill,
+      ...majorMidFill,
       ...allFill,
       ...rightFill,
-      ...majorRightFill,
+      ...rightFill,
       ...majorRightFill,
       ...rightFill,
+      ...rightFill,
       ...allFill,
-      ...midFill
+      ...majorMidFill
+    ];
+    let four = [
+      ...minorRightFill,
+      ...minorRightFill,
+      ...minorRightFill,
+      ...majorMidFill,
+      ...majorMidFill,
+      ...midEmpty,
+      ...allFill,
+      ...minorRightFill,
+      ...minorRightFill
     ];
     let eight = [
       ...midFill,
@@ -95,9 +113,9 @@
       ...midFill
     ];
 
-    three.forEach((item, index) => {
+    four.forEach((item, index) => {
       let seperator = "";
-      if (index % 5 === 0 && index !== 0) {
+      if (index % 6 === 0 && index !== 0) {
         seperator = "<div class='seperator'></div>";
       }
       $(".digit1").append(
@@ -105,9 +123,9 @@
       );
     });
 
-    one.forEach((item, index) => {
+    three.forEach((item, index) => {
       let seperator = "";
-      if (index % 5 === 0 && index !== 0) {
+      if (index % 6 === 0 && index !== 0) {
         seperator = "<div class='seperator'></div>";
       }
       $(".digit2").append(
