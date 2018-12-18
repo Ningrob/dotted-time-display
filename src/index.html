@@ -48,89 +48,132 @@
     let minorLeftFill = [0, 1, 1, 0, 0, 0];
 
     let zero = [
-      ...majorMidFill,
-      ...allFill,
-      ...midEmpty,
-      ...midEmpty,
-      ...midEmpty,
-      ...midEmpty,
-      ...midEmpty,
-      ...allFill,
-      ...majorMidFill
+      "o****o",
+      "******",
+      "**oo**",
+      "**oo**",
+      "**oo**",
+      "**oo**",
+      "**oo**",
+      "******",
+      "o****o"
     ];
     let one = [
-      ...midFill,
-      ...majorLeftFill,
-      ...majorLeftFill,
-      ...midFill,
-      ...midFill,
-      ...midFill,
-      ...midFill,
-      ...allFill,
-      ...allFill
+      "oo**oo",
+      "****oo",
+      "****oo",
+      "oo**oo",
+      "oo**oo",
+      "oo**oo",
+      "oo**oo",
+      "******",
+      "******"
     ];
     let two = [
-      ...majorMidFill,
-      ...allFill,
-      ...midEmpty,
-      ...rightFill,
-      ...majorRightFill,
-      ...majorLeftFill,
-      ...leftFill,
-      ...allFill,
-      ...allFill
+      "o****o",
+      "******",
+      "**oo**",
+      "ooo**o",
+      "oo**oo",
+      "o**ooo",
+      "**oooo",
+      "******",
+      "******"
     ];
     let three = [
-      ...majorMidFill,
-      ...allFill,
-      ...rightFill,
-      ...rightFill,
-      ...majorRightFill,
-      ...rightFill,
-      ...rightFill,
-      ...allFill,
-      ...majorMidFill
+      "o****o",
+      "******",
+      "**oo**",
+      "ooo***",
+      "oo***o",
+      "ooo***",
+      "**oo**",
+      "******",
+      "o****o"
     ];
     let four = [
-      ...minorRightFill,
-      ...minorRightFill,
-      ...minorRightFill,
-      ...majorMidFill,
-      ...majorMidFill,
-      ...midEmpty,
-      ...allFill,
-      ...minorRightFill,
-      ...minorRightFill
+      "ooo**o",
+      "oo***o",
+      "o****o",
+      "*****o",
+      "**o**o",
+      "******",
+      "******",
+      "ooo**o",
+      "ooo**o"
+    ];
+    let five = [
+      "******",
+      "******",
+      "**oooo",
+      "*****o",
+      "******",
+      "oooo**",
+      "oooo**",
+      "******",
+      "*****o"
+    ];
+    let six = [
+      "o*****",
+      "******",
+      "**oooo",
+      "*****o",
+      "******",
+      "**oo**",
+      "**oo**",
+      "******",
+      "o****o"
+    ];
+    let seven = [
+      "******",
+      "******",
+      "oooo**",
+      "ooo**o",
+      "oo**oo",
+      "o**ooo",
+      "**oooo",
+      "**oooo",
+      "**oooo"
     ];
     let eight = [
-      ...midFill,
-      ...allFill,
-      ...midEmpty,
-      ...midFill,
-      ...allFill,
-      ...midEmpty,
-      ...allFill,
-      ...midFill
+      "o****o",
+      "******",
+      "**oo**",
+      "**oo**",
+      "o****o",
+      "**oo**",
+      "**oo**",
+      "******",
+      "o****o"
+    ];
+    let nine = [
+      "o****o",
+      "******",
+      "**oo**",
+      "**oo**",
+      "******",
+      "o*****",
+      "oooo**",
+      "******",
+      "*****o"
     ];
 
-    four.forEach((item, index) => {
-      let seperator = "";
-      if (index % 6 === 0 && index !== 0) {
-        seperator = "<div class='seperator'></div>";
-      }
-      $(".digit1").append(
-        `${seperator}<div class="dots ${item ? "fill" : ""}"></div>`
-      );
+    nine.forEach((item, index) => {
+      item.split("").forEach(char => {
+        $(".digit1").append(
+          `<div class="dots ${char === "*" ? "fill" : ""}"></div>`
+        );
+      });
+      $(".digit1").append("<div class='seperator'></div>");
     });
 
-    three.forEach((item, index) => {
-      let seperator = "";
-      if (index % 6 === 0 && index !== 0) {
-        seperator = "<div class='seperator'></div>";
-      }
-      $(".digit2").append(
-        `${seperator}<div class="dots ${item ? "fill" : ""}"></div>`
-      );
+    two.forEach((item, index) => {
+      item.split("").forEach(char => {
+        $(".digit2").append(
+          `<div class="dots ${char === "*" ? "fill" : ""}"></div>`
+        );
+      });
+      $(".digit2").append("<div class='seperator'></div>");
     });
   </script>
 </html>
